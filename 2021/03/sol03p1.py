@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
 import sys
-import string
-
 
 if len(sys.argv) == 2:
     print("Opening: %s" % sys.argv[1])
