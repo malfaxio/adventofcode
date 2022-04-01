@@ -2,18 +2,24 @@
 
 import sys
 
-def s2a(s):
-    r = []
+def s2a(l):
+    print("L: %s" % l)
+    cur = []
     i = 0
-    while i < range(len(s)):
-        print(s[i])
-        if s[i] == "[":
-            i += 1
-            (n,r) = s2a(s[i+1:])
-        elif s[i] == "]":
-            return r
-        elif s[i] != "," and 0 <= int(s[i]) <= 9:
-            r.append(int(s[i]))
+    while i < len(l):
+        d = 1
+        if l[i] == '[':
+            (r, d) = s2a(l[i+1:])
+            print(r, d)
+            cur.append(r)
+            i += d
+        elif l[i] > '0' and l[i] < '9':
+            print(" n: %d" % int(l[i]))
+            cur.append(int(l[i]))
+        elif l[i] == ']':
+            return cur, i
+
+        i += 1
 
 
 if len(sys.argv) == 2:
@@ -23,7 +29,8 @@ if len(sys.argv) == 2:
 
     snailfish = []
     for l in lines:
-        snailfish.append(s2a(l))
+        (r,d) = s2a(l[1:])
+        snailfish.append(r)
 
     print(snailfish)
 
