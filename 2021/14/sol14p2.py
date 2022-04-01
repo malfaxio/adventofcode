@@ -2,43 +2,6 @@
 
 import sys
 
-def enrich(t):
-    res = ""
-    i = 0
-    while i < len(t)-1:
-        if t[i]+t[i+1] in pairins:
-            res += t[i] + pairins[t[i]+t[i+1]]
-
-        i += 1
-    res += t[i]
-
-    return res
-
-def findMinMax(t):
-    stat = {}
-    for c in t:
-        if c in stat:
-            stat[c] += 1
-        else:
-            stat[c] = 1
-
-    f = True
-    for k in stat:
-        s = stat[k]
-        if f:
-            mi = s
-            ma = s
-            f = False
-        else:
-            if s < mi:
-                mi = s
-            if s > ma:
-                ma = s
-        
-
-    return (mi, ma)
-
-
 if len(sys.argv) == 2:
     print("Opening: %s" % sys.argv[1])
 
