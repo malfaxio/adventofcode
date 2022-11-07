@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 
 import sys
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import heapq
+>>>>>>> main
 
 class Maze:
     def __init__(self):
@@ -39,6 +44,7 @@ if len(sys.argv) == 2:
 
     m.solve()
 
+<<<<<<< HEAD
 if len(sys.argv) == 2:
     print("Opening: %s" % sys.argv[1])
 
@@ -49,3 +55,18 @@ if len(sys.argv) == 2:
 
     vis = [[0] * len(row) for row in m.revela()]
     print(vis)
+=======
+if __name__ == '__main__':
+    main()
+=======
+
+if len(sys.argv) == 2:
+    print("Opening: %s" % sys.argv[1])
+
+    lines = open(sys.argv[1]).read().splitlines()
+    
+    p = re.compile("([A-Z]+)\s->\s([A-Z])")
+
+ 
+>>>>>>> 592ad0d5d3150f85712c98ee36d2530362fb619a
+>>>>>>> main
