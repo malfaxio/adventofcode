@@ -1,29 +1,29 @@
 #!/usr/bin/env python3
 
-<<<<<<< HEAD
 import collections
 import sys
 
 class Graph:
     def __init__(self):
         self.g = {}
-    
-    def add(self, f, t):
-        if f in self.g:
-            self.g[f].append(t)
-        else:
-            self.g[f] = [t]            
 
-        if t in self.g:
-            self.g[t].append(f)
-        else:
-            self.g[t] = [f]
+    def add(self, l):
+        (f, t) = l.split("-")
+        self.g[f] = self.g.get(f, []) + [t]
+        self.g[t] = self.g.get(t, []) + [f]
 
-    def marked(self, n):
-        print(n)
+    def revela(self):
+        print(self.g)
 
-    def dfs(self, s, e):
-        seen, queue = set([s]), collections.deque([s])
+    def dfs(self, s, e, v = set()):
+        if s == e:
+            return 1
+
+        t = 0
+        for n in self.g[s]:
+            if n in v: continue
+            print(v | {s} if s == s.lower() else v)
+            t += self.dfs(n, e, v | {s} if s == s.lower() else v)
 
         while queue:
             vx = queue.popleft()
@@ -36,7 +36,6 @@ class Graph:
                         seen.add(node)
                         queue.append(node)
 
-=======
 import sys
 import re
 
@@ -52,19 +51,18 @@ def navigate(node, visited = set()):
             t += navigate(v, visited | {node} if node == node.lower() else visited)
     return t
     
->>>>>>> 592ad0d5d3150f85712c98ee36d2530362fb619a
 
 if len(sys.argv) == 2:
     print("Opening: %s" % sys.argv[1])
 
-<<<<<<< HEAD
     paths = Graph()
     for l in open(sys.argv[1]).read().splitlines():
-        (f, t) = l.split("-")
-        paths.add(f, t)
+        paths.add(l)
+
+    paths.revela()
 
     print(paths.dfs("start", "end"))
-=======
+
     lines = open(sys.argv[1]).read().splitlines()
 
     p = re.compile("([a-zA-Z]+)-([a-zA-Z]+)")
@@ -81,4 +79,3 @@ if len(sys.argv) == 2:
 
     t = navigate("start")
     print("Total: %d" % t)
->>>>>>> 592ad0d5d3150f85712c98ee36d2530362fb619a
