@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from math import trunc
-import sys
+import sys   
 
 if len(sys.argv) == 2:
     print("Opening: %s" % sys.argv[1])
@@ -9,10 +9,10 @@ if len(sys.argv) == 2:
     lines = open(sys.argv[1]).read().splitlines()
 
     valids = 0
-    modelnumber = 99999999999999
-    modelnumber = 99999987473000
-    modelnumber = 99999958454000
-    modelnumber = 3
+    #modelnumber = 99999999999999
+    #modelnumber = 99999987473000
+    #modelnumber = 99999958454000
+    modelnumber = 99995731700000
 
     while modelnumber > 0:
         
@@ -63,10 +63,12 @@ if len(sys.argv) == 2:
 
             if vars["z"] == 0:
                 # model is valid
+                print("Valid %s" % modelnumber)
                 print(vars)
                 break
+
         else:
-            if modelnumber % 1000 == 0: print(modelnumber)
+            if modelnumber % 100000 == 0: print(modelnumber)
 
         modelnumber -= 1
 
