@@ -53,3 +53,10 @@ do
 done
 
 echo ${res[*]}
+
+m=1
+for n in ${res[*]}
+do
+  let m=m*n
+done
+echo $m
