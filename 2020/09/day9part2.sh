@@ -1,7 +1,7 @@
 #!/bin/bash
 
 declare -a xmas=( $(cat xmas.txt) )
-limit=2089807806
+limit=36845998
 
 for x in $(seq 0 $(( ${#xmas[@]} -1 )) ); do
   acc=${xmas[$x]}

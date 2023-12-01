@@ -17,7 +17,7 @@ while read j; do
   oj=$j
   echo 
   let i++
-done <<< "$( cat jolts.txt | sort -n )"
+done <<< "$( cat jt.txt | sort -n )"
 
 let d1++
 let d3++
