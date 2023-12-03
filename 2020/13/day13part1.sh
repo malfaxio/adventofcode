@@ -23,4 +23,4 @@ for b in ${bus[@]}; do
   fi
 done
 
-echo Bus ID: $minbid  with $mingap to wait
+echo Bus ID: $minbid  with $mingap to wait, res: $(( $minbid * $mingap ))
