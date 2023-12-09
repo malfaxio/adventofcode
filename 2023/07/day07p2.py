@@ -13,7 +13,6 @@ rankn = { 1: "high", 2: "pair", 3: '2 pair', 4: '3 in row', 5: 'full house', 6: 
 
 def rank(card):
     x = Counter(card)
-    j = 0
     t = Counter(x.values())
     r = 1
     if 5 in t:
