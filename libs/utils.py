@@ -29,3 +29,13 @@ def aoc_read_bysection(filename, convert="no"):
     r.append(p)
 
     return r
+
+def rechunk(r, cs):
+    res = []
+    for i in range(r[0], r[1], cs):
+        f = i+cs-1
+        if i+cs >= r[1]:
+            f = r[1]
+        res.append((i, f))
+
+    return res
